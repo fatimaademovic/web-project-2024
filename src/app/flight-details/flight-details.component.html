@@ -1,0 +1,49 @@
+<div class="flight-details-container">
+    <div class="header">
+      <h2>Flight Details</h2>
+    </div>
+    <div class="flight-info">
+      <p><strong>From:</strong> {{ flight.departureLocation }}</p>
+      <p><strong>To:</strong> {{ flight.arrivalLocation }}</p>
+      <p><strong>Departure Date:</strong> {{ flight.departureDate }}</p>
+      <p><strong>Arrival Date:</strong> {{ flight.arrivalDate }}</p>
+      <p><strong>Initial Price:</strong> {{ flight.price | currency:'USD':'symbol':'1.2-2' }}</p>
+    </div>
+    <div class="options">
+      <div class="form-group">
+        <label>Meals:</label>
+        <div>
+          <label>
+            <input type="radio" name="meal" value="no" [(ngModel)]="selectedMeal" (change)="calculateTotalCost()">
+            No
+          </label>
+          <label>
+            <input type="radio" name="meal" value="yes" [(ngModel)]="selectedMeal" (change)="calculateTotalCost()">
+            Yes (+$10)
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Luggage Options:</label>
+        <div>
+          <label>
+            <input type="radio" name="luggage" value="none" [(ngModel)]="selectedLuggageOption" (change)="calculateTotalCost()">
+            None
+          </label>
+          <label>
+            <input type="radio" name="luggage" value="plus" [(ngModel)]="selectedLuggageOption" (change)="calculateTotalCost()">
+            Plus +20kg   (+$20)
+          </label>
+          <label>
+            <input type="radio" name="luggage" value="premium" [(ngModel)]="selectedLuggageOption" (change)="calculateTotalCost()">
+            Premium Unlimited (+$50)
+          </label>
+        </div>
+      </div>
+      <div class="total-cost" *ngIf="totalCost !== 0">
+        Total Cost: {{ totalCost | currency:'USD':'symbol':'1.2-2' }}
+      </div>
+    </div>
+    <button class="buy-button" [disabled]="totalCost === 0" (click)="buyTicket()">Buy Ticket</button>
+  </div>
+  

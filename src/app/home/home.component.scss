@@ -1,0 +1,160 @@
+:host {
+  color: #001D35;
+  font-size: 14px;
+
+  .drives {
+    width: 100%;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+
+    .drives-box {
+      width: 100%;
+      overflow-x: scroll;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+
+      .drive-parent {
+        background-color: white;
+        border: 1px solid rgba(0, 29, 53, 0.15);
+        border-radius: 8px;
+  
+        .drive {
+          width: 300px;
+          padding: 16px 21px;
+        }
+  
+        &:hover {
+          background-color: rgba(0, 150, 242, 0.05);
+          border: 1px solid #0096F2;
+        }
+      }
+    }
+
+    .drives-box::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+
+    .scroll-button {
+      width: 42px;
+      height: 42px;
+      margin-left: 13px;
+      background-color: #F9F9FC;
+      border: 1px solid #E2E2E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .bottom-border {
+    border-bottom: 1px solid rgba(#001d35, 0.1);
+  }
+
+  .btn-info {
+    background-color: #0096F2;
+
+    &:hover {
+      background-color: #29a5f3;
+    }
+  }
+
+  .route-box {
+    min-width: 200px;
+    padding: 11px 11px 11px 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 29, 53, 0.15);
+    border-radius: 8px;
+  }
+
+  .find-text {
+    margin-top: 100px;
+  }
+
+  .routes-table {
+
+    .data-row {
+      background: rgba(0, 29, 53, 0.05);
+      border: 1px solid rgba(0, 29, 53, 0.05);
+      border-radius: 8px;
+      min-height: 50px;
+    }
+
+    .column {
+      display: flex;
+      align-items: right;
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    
+    .company-column {
+      width: 200px;
+    }
+
+    .from-column {
+      width: 100px;
+    }
+
+    .to-column {
+      width: 100px;
+    }
+
+    .from-date-column {
+      width: auto;
+    }
+
+    .to-date-column {
+      width: auto;
+    }
+
+    .button-column {
+      width: auto;
+      height: 40px;
+    }
+  }
+}
+
+
+.flight-search-box {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flight-search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  margin-right: 20px;
+}
+
+
+.form-control,
+select {
+  width: 200px; 
+}
+
+label {
+  margin-right: 10px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 200px;
+}
+
+button {
+  margin-left: 20px;
+}

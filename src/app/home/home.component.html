@@ -1,0 +1,50 @@
+<div *ngIf="!routesListed" class="find-text d-flex flex-column align-items-center">
+  <div class="fit-content font-semibold">Find your flight</div>
+  <div class="">Enter your information and find yourself a flight.</div>
+</div>
+
+<div class="flight-search-box">
+  <form class="flight-search-form">
+    <div class="form-group">
+      <label for="fromDestination">From:</label>
+      <select class="form-control" [(ngModel)]="fromDestinationId" (change)="onFromDestinationChange($event.target)">
+        <option *ngFor="let location of locations" [value]="location.id">{{ location.city }}, {{ location.country }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="toDestination">To:</label>
+      <select class="form-control" [(ngModel)]="toDestinationId" (change)="onToDestinationChange($event.target)">
+        <option *ngFor="let location of locations" [value]="location.id" >{{ location.city }}, {{ location.country }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fromDate">From Date:</label>
+      <input type="date" id="fromDate" class="form-control" [(ngModel)]="fromDate">
+    </div>
+    <div class="form-group">
+      <label for="toDate">To Date:</label>
+      <input type="date" id="toDate" class="form-control" [(ngModel)]="toDate">
+    </div>
+    <button class="btn btn-primary" (click)="onSearch()">Search</button>
+  </form>
+</div>
+
+<div *ngIf="routesListed">
+  <h3 class=" font-semibold mb-6">Found {{flights.length}} flights</h3>
+  <div class="routes-table pb-8">
+    <div *ngFor="let flight of flights" class="data-row fw-500 px-4 d-flex justify-content-between mb-2">
+      <div class="column column-company-column">{{flight.airline}}</div>
+      <div class="column column-from-column">{{flight.departureLocation}}</div>
+      <div class="column column-to-column">{{flight.arrivalLocation}}</div>
+      <div class="column column-from-data-column">
+       {{flight.departureDate}}
+      </div>
+      <div class="column column-to-date-column">
+        {{flight.arrivalDate }}
+      </div>
+      <div class="column-button-column fw-400 d-flex justify-content-between">
+        <button type="button" class="btn bg-success btn-fit text-white rounded submit-button w-full" (click)="openFlightDetails(flight)">Buy a ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
